@@ -1,8 +1,12 @@
 simple-macOS is a script where you can easily run macOS on a virtual machine using QEMU. With just three commands, you're ready to run macOS on any linux distro. The project is based on Alan Pope's project, the Sosumi snap, which is based on the macOS-Simple-KVM project.
 First of all you need to know if your computer can handle this virtual machine. Here are the requirements I recommend for the host computer:
+
 At least 8GiB of RAM;
+
 300GB of free disk space;
+
 2-core or more processor;
+
 A Linux distro;
 
 Then you need to run the command:
