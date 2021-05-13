@@ -8,16 +8,18 @@
  -cpu Penryn,vendor=GenuineIntel,kvm=on,+mmx,+sse,+sse2,+ssse3,+sse3,+sse4.1,+sse4.2,+sse4a,+xop,+aes,+xsave,+avx,+xsaveopt,+xsavec,+xgetbv1,+avx2,+bmi2,+smep,+bmi1,+fma,+f16c,+movbe,+invtsc \
  -device isa-applesmc,osk="ourhardworkbythesewordsguardedpleasedontsteal(c)AppleComputerInc" \
  -smbios type=2 \
- -object rng-random,id=rng0,filename=/dev/urandom -device virtio-rng-pci,rng=rng0 \
+ -object rng-random,id=rng0,filename=/dev/urandom \
+ -device virtio-rng-pci,rng=rng0 \
  -serial mon:stdio \
  -drive if=pflash,format=raw,readonly,file=/home/$USER/simple-macOS/firmware/OVMF_CODE.fd \
  -drive if=pflash,format=raw,file=/home/$USER/simple-macOS/firmware/OVMF_VARS-1024x768.fd \
+ -display gtk,gl=on \
  -device virtio-vga,virgl=on \
- -display gtk \
  -L ovmf \
  -audiodev pa,id=pa,server="/run/user/$(id -u)/pulse/native" \
  -device ich9-intel-hda -device hda-duplex,audiodev=pa \
- -usb -device usb-kbd -device usb-mouse \
+ -usb -device usb-kbd \
+ -device usb-mouse \
  -netdev user,id=net0 \
  -device vmxnet3,netdev=net0,id=net0 \
  -drive if=virtio,format=qcow2,file=/home/$USER/simple-macOS/ESP.qcow2 \
